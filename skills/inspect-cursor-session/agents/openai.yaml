@@ -1,0 +1,6 @@
+interface:
+  display_name: "Inspect Cursor Session"
+  short_description: "Inspect Cursor session and request IDs"
+  default_prompt: "Use $inspect-cursor-session to inspect a supplied Cursor session/composer ID directly, or resolve a request/generation ID first. Then summarize the session and whether it looks blocked. If no identifier was supplied, inspect the latest session."
+policy:
+  allow_implicit_invocation: true

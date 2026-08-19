@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "codex.task-owned-follow-up-monitor.spec/v1",
+  "monitorKey": "example-owner-monitor-0001",
+  "name": "EXAMPLE-1 disposable owner heartbeat",
+  "owner": {
+    "provider": "codex",
+    "taskId": "01900000-0000-7000-8000-000000000001",
+    "hostId": "local",
+    "project": {
+      "id": null,
+      "path": "<target-home>/.codex/worktrees/example/project"
+    }
+  },
+  "ticket": {
+    "system": "tracker",
+    "id": "EXAMPLE-1",
+    "url": "https://tracker.example.invalid/issue/EXAMPLE-1"
+  },
+  "target": {
+    "kind": "local-heartbeat-proof",
+    "ref": "example-disposable-proof",
+    "query": "Return one synthetic terminal-success result containing this ticket and owner context; read or mutate no production data."
+  },
+  "trigger": {
+    "kind": "schedule",
+    "description": "Once per minute during the disposable proof",
+    "timezone": "UTC"
+  },
+  "bounds": {
+    "expiresAt": "2030-01-01T00:30:00Z",
+    "maxRuns": 2,
+    "requireHostEnforcement": true
+  },
+  "conditions": {
+    "success": "The same owner receives one synthetic terminal-success result.",
+    "finding": "The persisted automation differs from this spec or a new task is created.",
+    "timeout": "No same-owner result arrives before the proof window ends.",
+    "cancel": "The owner deletes the disposable automation or any safety invariant fails."
+  },
+  "allowedActions": [
+    "read_exact_target",
+    "record_monitor_state",
+    "wake_same_owner"
+  ],
+  "resultDestination": {
+    "ownerTaskId": "01900000-0000-7000-8000-000000000001",
+    "durableRecord": "the originating Codex task transcript",
+    "fallbackHandoff": "one concise message to coordinator task 01900000-0000-7000-8000-000000000002"
+  }
+}

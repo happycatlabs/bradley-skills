@@ -1,0 +1,6 @@
+interface:
+  display_name: "Inspect Claude Session"
+  short_description: "Inspect local Claude session transcripts"
+  default_prompt: "Use $inspect-claude-session to summarize the latest Claude session and tell me whether it looks blocked."
+policy:
+  allow_implicit_invocation: true

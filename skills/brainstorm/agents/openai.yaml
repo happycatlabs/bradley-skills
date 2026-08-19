@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brainstorm"
+  short_description: "Cross-agent idea generation and stress testing"
+  default_prompt: "Use $brainstorm to explore options and stress-test the best ideas."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sound Human"
+  short_description: "Make technical writing sound clear and human"
+  default_prompt: "Use $sound-human to rewrite this for first-read clarity and a natural human voice."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Automation"
+  short_description: "Manage Codex automations on local or remote machines."
+  default_prompt: "/codex-automation create or update this automation on the requested Codex machine"

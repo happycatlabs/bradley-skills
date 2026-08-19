@@ -1,0 +1,4 @@
+interface:
+  display_name: "Dispatch"
+  short_description: "Create Codex worktree handoffs."
+  default_prompt: "Use $dispatch to create focused delivery, exploration, or watcher tasks with a context capsule and JSON ledger; if paired with $monitor, keep the parent open with one watcher lane per child until terminal states."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Claude"
+  short_description: "Ask Claude Code through claude -p"
+  default_prompt: "Use $claude to ask Claude Code for an independent second opinion on this implementation plan."

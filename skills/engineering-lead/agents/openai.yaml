@@ -1,0 +1,4 @@
+interface:
+  display_name: "Engineering Lead"
+  short_description: "Coordinate projects while staying interruptible."
+  default_prompt: "Use $engineering-lead to reconcile project context and live owner tasks, route durable delivery to dispatched owners, and keep the lead available to Bradley."

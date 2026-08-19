@@ -1,0 +1,14 @@
+.DS_Store
+__pycache__/
+*.pyc
+
+# Generated benchmark evidence can contain local paths, session identifiers,
+# raw model output, and usage telemetry. Keep only harnesses and documentation.
+benchmarks/runs/
+
+# Session logs are local operational evidence, not distributable skill source.
+docs/session-logs/
+
+# Host-local orchestration feedback; never commit execution history.
+skills/orchestrate/briefing-feedback.jsonl
+skills/orchestrate/model-feedback.jsonl

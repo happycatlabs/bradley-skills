@@ -1,0 +1,4 @@
+interface:
+  display_name: "Consult"
+  short_description: "One-shot cross-agent second opinions"
+  default_prompt: "Use $consult to get a concise second opinion from another agent."

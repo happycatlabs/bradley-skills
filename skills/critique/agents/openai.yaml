@@ -1,0 +1,4 @@
+interface:
+  display_name: "Critique"
+  short_description: "Run cross-agent critique and review passes."
+  default_prompt: "Use critique to review the current work with the right cross-agent reviewers."

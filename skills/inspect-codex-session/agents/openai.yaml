@@ -1,0 +1,6 @@
+interface:
+  display_name: "Inspect Codex Tasks"
+  short_description: "Inspect Codex task state and transcripts"
+  default_prompt: "Use $inspect-codex-session to inspect this Codex task, summarize its current turn, and determine its lifecycle state."
+policy:
+  allow_implicit_invocation: true

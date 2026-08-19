@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "codex.task-owned-follow-up-monitor.receipt/v1",
+  "specSchemaVersion": "codex.task-owned-follow-up-monitor.spec/v1",
+  "monitorKey": "example-owner-monitor-0001",
+  "specDigest": "63bf8b75373aac133c88477515b871f2da004d9dd43ed3a01fa03ddc9a5430e9",
+  "persistedIntentDigest": null,
+  "owner": {
+    "provider": "codex",
+    "taskId": "01900000-0000-7000-8000-000000000001",
+    "hostId": "local",
+    "project": {
+      "id": null,
+      "path": "<target-home>/.codex/worktrees/example/project"
+    }
+  },
+  "revision": 1,
+  "operation": "register",
+  "state": "capability_blocked",
+  "installed": false,
+  "requestedAutomation": {
+    "kind": "heartbeat",
+    "name": "EXAMPLE-1 disposable owner heartbeat",
+    "hostId": "local",
+    "destination": "thread",
+    "targetThreadId": "01900000-0000-7000-8000-000000000001",
+    "schedule": "Once per minute during the disposable proof"
+  },
+  "automation": null,
+  "bounds": {
+    "expiresAt": {
+      "requested": "2030-01-01T00:30:00Z",
+      "persisted": null,
+      "enforced": false,
+      "evidence": "The live heartbeat API exposes no native expiry field."
+    },
+    "maxRuns": {
+      "requested": 2,
+      "persisted": null,
+      "enforced": false,
+      "evidence": "The live heartbeat API exposes no native maximum-run field. Recurrence COUNT persisted in a separate manually bounded proof, but scheduler enforcement was not proven."
+    }
+  },
+  "authority": {
+    "allowedActions": [
+      "read_exact_target",
+      "record_monitor_state",
+      "wake_same_owner"
+    ],
+    "deniedActionFamilies": [
+      "merge",
+      "deploy",
+      "production_repair",
+      "provider_resolution",
+      "linear_closure",
+      "unrelated_mutation",
+      "new_task_creation"
+    ]
+  },
+  "resultRouting": {
+    "ownerTaskId": "01900000-0000-7000-8000-000000000001",
+    "durableRecord": "the originating Codex task transcript",
+    "fallbackHandoff": "one concise message to coordinator task 01900000-0000-7000-8000-000000000002",
+    "callbackObserved": false
+  },
+  "verification": {
+    "dedupeChecked": true,
+    "dedupeMatch": null,
+    "mutationAttempted": false,
+    "mutationResult": "stopped before creation because required host enforcement was unavailable",
+    "readBackAt": null,
+    "readBackMatched": false,
+    "normalizedSpecPersistedExactly": null,
+    "semanticProjectionMatched": null,
+    "rawTomlWritten": false,
+    "cleanupVerified": true
+  },
+  "limitations": [
+    "Expiry and maximum-run enforcement are not represented by native heartbeat fields on the observed host.",
+    "Recurrence COUNT persistence does not satisfy required host enforcement without actual scheduler stop proof.",
+    "A prompt-only bound is not accepted as persistence or enforcement proof."
+  ]
+}

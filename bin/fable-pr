@@ -1,0 +1,19 @@
+#!/bin/sh
+
+set -eu
+
+BUN="${BUN_INSTALL:-$HOME/.bun}/bin/bun"
+PATH="$HOME/.bun/bin:/opt/homebrew/bin:/usr/local/bin:${PATH:-}"
+export PATH
+
+for helper in \
+  "$HOME/dev/bradley-skills/scripts/fable-pr.ts" \
+  "$HOME/code/bradley-skills/scripts/fable-pr.ts"
+do
+  if [ -f "$helper" ]; then
+    exec "$BUN" "$helper" "$@"
+  fi
+done
+
+echo "fable-pr: bradley-skills helper not found" >&2
+exit 1
