@@ -22,8 +22,6 @@ multi-agent development work.
   explicitly adopt existing Dancer PRs, verify an exact-number Fable draft
   without creation fallback, and mark an exact claimed/attested draft ready
   for review; optional labels use ambient human `gh`
-- `codex/AGENTS.md`: global Codex guidance that routes ad-hoc Fable PR creation
-  through the installed `fable-pr` command
 
 ## Install
 
