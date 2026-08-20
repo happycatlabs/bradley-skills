@@ -29,7 +29,7 @@ Good fits:
   reviewing Codex).
 - Structured extraction where `--json-schema` guarantees a parseable object.
 - Cost-tiered work: `--model haiku|sonnet` + `--effort low` make cheap
-  mechanical lanes; `fable`/`opus` for hard reasoning.
+  mechanical lanes; `opus` for hard reasoning.
 
 Keep on the host: lanes needing the current conversation's context (Claude
 starts cold each dispatch), final integration owned by the lead, and
@@ -126,7 +126,7 @@ PROMPT
 
 It auto-selects `--bare` when `ANTHROPIC_API_KEY` is set, else `--safe-mode`,
 and prints normalized JSON with `result`, `session_id`, and cost metadata.
-The wrapper runs the user's default model (fable) — right for real
+The wrapper runs the user's configured default model — right for real
 consults; for quick factual checks pass `--model sonnet --effort low`
 instead of paying frontier prices for one sentence.
 Useful wrapper flags: `--project` (full project context), `--schema
@@ -186,7 +186,7 @@ to match the lane:
   `orchestrate/playbooks/local-browser-verification.md`; one browser lane at
   a time.
 - **Model/effort routing:** `--model haiku|sonnet` + `--effort low` for
-  mechanical lanes; `--model fable` (or the user default) for hard
+  mechanical lanes; `--model opus` (or the user default) for hard
   reasoning, review, and integration-adjacent work. `--fallback-model` adds
   overload resilience for long unattended lanes.
 - **Internal fan-out:** Claude has its own Agent tool and can spawn
@@ -269,5 +269,5 @@ For orchestrated lanes, log the outcome to
 `~/.agents/skills/orchestrate/model-feedback.jsonl` with
 `agent_surface: "claude-cli"` and the concrete model alias used, and follow
 the orchestrate skill's exploration policy — occasionally trial a different
-model/effort tier (haiku/sonnet with low effort vs fable) on comparable
+model/effort tier (haiku/sonnet with low effort vs opus) on comparable
 low-risk lanes so routing keeps improving.

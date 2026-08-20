@@ -122,11 +122,6 @@ conversation itself is material and cannot be represented faithfully.
    - Tell the child that if it is later authorized to open or adopt a PR, its
      exact task id remains the owner through `orchestrate`'s pull-request
      ownership loop. Do not dispatch a separate closer for CI or review fixes.
-   - For Fable, tell the child that agent- or automation-owned PRs must use
-     `fable-pr`. Plain `gh pr create` is forbidden
-     unless Bradley explicitly chooses personal authorship. New PRs stay draft
-     through `claim` and `attest`; the same owner then runs `fable-pr ready`
-     before `watch`.
    - Tell the child not to add local agent session logs to the repo unless the
      repo explicitly requires them.
 6. Rename created threads.
@@ -278,10 +273,6 @@ Closeout rules:
   in this same task, refresh exact-head evidence after every push, and stop only
   at a defined terminal disposition. Write and read back the canonical
   `prOwner` record at adoption and after every push.
-- For Fable, create or adopt an agent-owned PR only through
-  `fable-pr`. Do not use plain `gh pr create` unless
-  Bradley explicitly requests personal authorship. Keep new PRs draft through
-  `claim` and `attest`, then use `fable-pr ready` before `watch`.
 - Do not add local agent session logs to the repo unless repo instructions
   explicitly require them.
 

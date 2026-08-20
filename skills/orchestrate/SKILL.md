@@ -200,7 +200,7 @@ and gates before committing, pushing, deploying, or updating trackers.
 
 7. Match model strength to task shape.
    - Prefer stronger, higher-thinking models for ambiguous architecture, risky refactors, deep debugging, product judgment, or final integration.
-   - For Claude advisory lanes on ambiguous wrap/release review, native/mobile lifecycle checks, or product-sensitive architecture, prefer Fable with high effort when available and budget allows. It has been especially useful for catching lifecycle and deployment hazards while still returning concrete small fixes.
+   - For Claude advisory lanes on ambiguous wrap/release review, native/mobile lifecycle checks, or product-sensitive architecture, prefer the strongest configured model (typically Opus) with high effort when available and budget allows. Stronger models are especially useful for catching lifecycle and deployment hazards while still returning concrete small fixes.
    - For simple or well-defined slices, try faster/lighter models when available, especially `gpt-5.3-codex-spark` because it is really fast, and compare the result against validation and review evidence.
    - Do not let model experimentation lower the bar: the main agent still verifies the work and upgrades to a stronger model when the slice drifts, misses instructions, or produces weak reasoning.
 
@@ -218,14 +218,6 @@ and gates before committing, pushing, deploying, or updating trackers.
 Opening or updating a pull request starts an ownership loop; it is not a
 handoff or completion boundary. This contract applies to any PR-producing Codex
 or Claude task, whether it is the lead task or an explicitly authorized child.
-
-For Fable, every agent- or automation-owned PR must be created or explicitly
-adopted through `fable-pr`; plain `gh pr create` is
-forbidden unless Bradley explicitly requests personal authorship. The helper
-opens new PRs as drafts and proves Dancer authorship and exact head before using
-ambient human `gh` only for labels. Keep the PR draft while the originating
-task runs `claim` and `attest`, then use `fable-pr ready` before `watch`. It
-grants no merge, deploy, approval, release, or tracker authority.
 
 Before opening or adopting the PR, preserve enough durable identity for later
 recovery. Use the repo's established durable PR marker when one exists;
@@ -246,7 +238,7 @@ owning host. Both storage forms use this logical `prOwner` record:
   "headRef": "codex/example",
   "headSha": "0123456789abcdef",
   "baseRef": "master",
-  "ticketId": "FABLE-123",
+  "ticketId": "PROJ-123",
   "prDisposition": "working",
   "executionRestrictions": {
     "sandboxMode": "workspace-write",
