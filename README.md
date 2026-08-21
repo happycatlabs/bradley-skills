@@ -11,6 +11,7 @@ multi-agent development work.
 - `orchestrate`: parallel multi-agent coordination
 - `engineering-lead`: interruptible portfolio, project, and domain coordination
 - `agent-workspace`: machine-configured durable Notion context for agent teams
+- `agent-organization-directory`: provider-neutral role/reporting directory and bounded local snapshots
 - `workspace-coordinator`: live reconciliation across workspace, tasks,
   trackers, repositories, CI, and shipping gates
 - `dispatch`: durable Codex worktree handoffs and delegation ledgers

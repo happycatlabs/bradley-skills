@@ -1,0 +1,63 @@
+{
+  "baseDirectoryRevision": 1,
+  "previousBindingDigest": "b8359b5bcceef25ba42be902da32b51b22d9249403a71650cf053136cea70596",
+  "proposalDigest": "36c5d33e9218559cdab34db7c00f72bdd269ac1df4144bb78a4c3480973c8427",
+  "proposedBinding": {
+    "advertisedCapabilities": [
+      {
+        "capability": "inspect_task",
+        "routeRef": "codex:read-thread",
+        "status": "live_proven"
+      },
+      {
+        "capability": "message_existing_task",
+        "routeRef": "codex:send-message-to-thread",
+        "status": "live_proven"
+      },
+      {
+        "capability": "archive_task",
+        "routeRef": null,
+        "status": "unsupported"
+      }
+    ],
+    "bindingRevision": 2,
+    "executionEpoch": 2,
+    "identity": {
+      "hostScope": "local",
+      "provider": "codex",
+      "taskId": "01a0233b-65c0-7972-9ced-3e9b55ef6486"
+    },
+    "issuedAt": "2026-08-21T09:30:00Z",
+    "placement": {
+      "currentHostId": "local-moved"
+    },
+    "reportsTo": {
+      "hostScope": "local",
+      "provider": "codex",
+      "taskId": "01900000-0000-7000-8000-000000000099"
+    },
+    "role": "domain_lead",
+    "root": false,
+    "schemaVersion": "bradley.agent-organization-binding/v1",
+    "scope": {
+      "authorityRef": "https://linear.app/happycat/issue/FABLE-406",
+      "contractRef": "agent-workspace://cloud-first-agent-organization-prd",
+      "domain": "cloud execution and agent organization",
+      "privacyClass": "internal_metadata",
+      "project": "fable",
+      "team": "fable"
+    },
+    "state": "active",
+    "supersedes": {
+      "bindingDigest": "b8359b5bcceef25ba42be902da32b51b22d9249403a71650cf053136cea70596",
+      "bindingRevision": 1,
+      "executionEpoch": 1
+    }
+  },
+  "schemaVersion": "bradley.agent-organization-reparent-proposal/v1",
+  "targetIdentity": {
+    "hostScope": "local",
+    "provider": "codex",
+    "taskId": "01a0233b-65c0-7972-9ced-3e9b55ef6486"
+  }
+}

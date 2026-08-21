@@ -1,0 +1,160 @@
+{
+  "bindings": [
+    {
+      "advertisedCapabilities": [
+        {
+          "capability": "message_existing_task",
+          "routeRef": "codex:send-message-to-thread",
+          "status": "live_proven"
+        }
+      ],
+      "bindingRevision": 1,
+      "executionEpoch": 1,
+      "identity": {
+        "hostScope": "local",
+        "provider": "codex",
+        "taskId": "01900000-0000-7000-8000-000000000099"
+      },
+      "issuedAt": "2026-08-21T09:11:07.724Z",
+      "placement": {
+        "currentHostId": "local"
+      },
+      "reportsTo": null,
+      "role": "project_lead",
+      "root": true,
+      "schemaVersion": "bradley.agent-organization-binding/v1",
+      "scope": {
+        "authorityRef": "user:bradley",
+        "contractRef": "https://example.invalid/contracts/independent-lead",
+        "domain": null,
+        "privacyClass": "public_metadata",
+        "project": "independent-example",
+        "team": "example"
+      },
+      "state": "active",
+      "supersedes": null
+    },
+    {
+      "advertisedCapabilities": [
+        {
+          "capability": "inspect_task",
+          "routeRef": "codex:read-thread",
+          "status": "live_proven"
+        },
+        {
+          "capability": "message_existing_task",
+          "routeRef": "codex:send-message-to-thread",
+          "status": "live_proven"
+        }
+      ],
+      "bindingRevision": 1,
+      "executionEpoch": 1,
+      "identity": {
+        "hostScope": "local",
+        "provider": "codex",
+        "taskId": "019fabe3-6424-7583-997d-0b93afc18972"
+      },
+      "issuedAt": "2026-08-21T09:11:07.724Z",
+      "placement": {
+        "currentHostId": "local"
+      },
+      "reportsTo": null,
+      "role": "machine_engineering_lead",
+      "root": true,
+      "schemaVersion": "bradley.agent-organization-binding/v1",
+      "scope": {
+        "authorityRef": "user:bradley",
+        "contractRef": "agent-workspace://cloud-first-agent-organization-prd",
+        "domain": "engineering portfolio",
+        "privacyClass": "internal_metadata",
+        "project": "fable",
+        "team": "fable"
+      },
+      "state": "active",
+      "supersedes": null
+    },
+    {
+      "advertisedCapabilities": [
+        {
+          "capability": "inspect_task",
+          "routeRef": "codex:read-thread",
+          "status": "live_proven"
+        },
+        {
+          "capability": "message_existing_task",
+          "routeRef": "codex:send-message-to-thread",
+          "status": "live_proven"
+        },
+        {
+          "capability": "archive_task",
+          "routeRef": null,
+          "status": "unsupported"
+        }
+      ],
+      "bindingRevision": 2,
+      "executionEpoch": 2,
+      "identity": {
+        "hostScope": "local",
+        "provider": "codex",
+        "taskId": "01a0233b-65c0-7972-9ced-3e9b55ef6486"
+      },
+      "issuedAt": "2026-08-21T09:30:00Z",
+      "placement": {
+        "currentHostId": "local-moved"
+      },
+      "reportsTo": {
+        "hostScope": "local",
+        "provider": "codex",
+        "taskId": "01900000-0000-7000-8000-000000000099"
+      },
+      "role": "domain_lead",
+      "root": false,
+      "schemaVersion": "bradley.agent-organization-binding/v1",
+      "scope": {
+        "authorityRef": "https://linear.app/happycat/issue/FABLE-406",
+        "contractRef": "agent-workspace://cloud-first-agent-organization-prd",
+        "domain": "cloud execution and agent organization",
+        "privacyClass": "internal_metadata",
+        "project": "fable",
+        "team": "fable"
+      },
+      "state": "active",
+      "supersedes": {
+        "bindingDigest": "b8359b5bcceef25ba42be902da32b51b22d9249403a71650cf053136cea70596",
+        "bindingRevision": 1,
+        "executionEpoch": 1
+      }
+    }
+  ],
+  "directoryDigest": "be3312ce707917fd0af8780fa764e98748ee281d03d2812f15090b34fefba0f7",
+  "directoryRevision": 2,
+  "directorySchemaVersion": "bradley.agent-organization-directory/v1",
+  "observerSubscriptions": [
+    {
+      "authority": false,
+      "observes": {
+        "hostScope": "local",
+        "provider": "codex",
+        "taskId": "01a0233b-65c0-7972-9ced-3e9b55ef6486"
+      },
+      "purpose": "portfolio_visibility",
+      "revision": 1,
+      "schemaVersion": "bradley.agent-observer-subscription/v1",
+      "state": "active",
+      "subscriber": {
+        "hostScope": "local",
+        "provider": "codex",
+        "taskId": "01900000-0000-7000-8000-000000000099"
+      }
+    }
+  ],
+  "schemaVersion": "bradley.agent-organization-snapshot/v1",
+  "sourceReadback": {
+    "observedAt": "2026-08-21T09:11:07.724Z",
+    "pageId": "00000000-0000-4000-8000-000000000003",
+    "pageUrl": "https://app.notion.com/p/00000000000040008000000000000003",
+    "provider": "notion",
+    "rootPageId": "00000000-0000-4000-8000-000000000002",
+    "workspaceId": "00000000-0000-4000-8000-000000000001"
+  }
+}
