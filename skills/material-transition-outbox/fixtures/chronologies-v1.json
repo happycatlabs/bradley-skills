@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "bradley.material-transition-chronologies/v1",
+  "directoryFixture": "../../agent-organization-directory/fixtures/directory-v1.json",
+  "cases": [
+    {
+      "name": "duplicate-delivery-and-restart",
+      "expected": "no_write"
+    },
+    {
+      "name": "ambiguous-acceptance-readback",
+      "expected": "delivered_once"
+    },
+    {
+      "name": "busy-recipient-bounded-fallback",
+      "expected": "fallback_delivered"
+    },
+    {
+      "name": "quiet-no-change",
+      "expected": "read_only_no_write"
+    },
+    {
+      "name": "moved-binding",
+      "expected": "fallback_pending"
+    },
+    {
+      "name": "unavailable-provider",
+      "expected": "bounded_fallback"
+    },
+    {
+      "name": "linear-fallback-bounded",
+      "expected": "failed"
+    },
+    {
+      "name": "terminal-owner",
+      "expected": "fallback_pending"
+    },
+    {
+      "name": "observer-subscription-copy",
+      "expected": "non_authority_copy"
+    },
+    {
+      "name": "blocker-once-per-fingerprint",
+      "expected": "no_write"
+    },
+    {
+      "name": "reply-does-not-escalate",
+      "expected": "no_write"
+    },
+    {
+      "name": "bounded-causal-hop",
+      "expected": "hop_limit_exceeded"
+    }
+  ]
+}
