@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "bindingDigest": "2b099b16642db52f8aaf9f272ba6f8f3695456288aaa125c8b0b8dcb62167340",
+  "bindingRevision": 2,
+  "destinationHostId": "local-moved",
+  "executionEpoch": 2,
+  "identity": {
+    "hostScope": "local",
+    "provider": "codex",
+    "taskId": "01a0233b-65c0-7972-9ced-3e9b55ef6486"
+  },
+  "observedAt": "2026-08-21T09:30:01Z",
+  "proposalDigest": "36c5d33e9218559cdab34db7c00f72bdd269ac1df4144bb78a4c3480973c8427",
+  "schemaVersion": "bradley.agent-organization-destination-readback/v1"
+}

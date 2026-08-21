@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "bradley.agent-organization-conformance/v1",
+  "baseFixture": "directory-v1.json",
+  "serializedReparentFlow": {
+    "proposal": "reparent-proposal-v1.json",
+    "destinationReadback": "destination-readback-v1.json",
+    "updatedDirectory": "directory-reparented-v1.json",
+    "updatedSnapshot": "snapshot-reparented-v1.json"
+  },
+  "identities": {
+    "root": "codex:019fabe3-6424-7583-997d-0b93afc18972:local",
+    "domainLead": "codex:01a0233b-65c0-7972-9ced-3e9b55ef6486:local",
+    "independentRoot": "codex:01900000-0000-7000-8000-000000000099:local",
+    "unbound": "codex:01900000-0000-7000-8000-000000000404:local"
+  },
+  "cases": [
+    {
+      "name": "root-binding",
+      "operation": "lookup",
+      "identity": "root",
+      "expected": "ok"
+    },
+    {
+      "name": "domain-lead-binding",
+      "operation": "lookup",
+      "identity": "domainLead",
+      "expected": "ok"
+    },
+    {
+      "name": "unbound-task",
+      "operation": "lookup",
+      "identity": "unbound",
+      "expected": "unbound"
+    },
+    {
+      "name": "successful-reparent-and-host-move",
+      "operation": "reparent",
+      "target": "domainLead",
+      "newParent": "independentRoot",
+      "destinationHostId": "local-moved",
+      "readback": "exact-accepted",
+      "expected": "ok"
+    },
+    {
+      "name": "failed-destination-readback",
+      "operation": "reparent",
+      "target": "domainLead",
+      "newParent": "independentRoot",
+      "destinationHostId": "local-moved",
+      "readback": "denied",
+      "expected": "destination_readback_failed"
+    },
+    {
+      "name": "stale-prior-revision",
+      "operation": "reparent",
+      "target": "domainLead",
+      "newParent": "independentRoot",
+      "destinationHostId": "local-moved",
+      "readback": "exact-accepted",
+      "mutateDirectoryRevisionAfterProposal": true,
+      "expected": "stale_directory_revision"
+    },
+    {
+      "name": "target-mutated-after-proposal",
+      "operation": "mutate-target-after-proposal",
+      "expected": "stale_binding_revision"
+    },
+    {
+      "name": "stale-execution-epoch",
+      "operation": "skew-reparented-epoch",
+      "expected": "stale_epoch"
+    },
+    {
+      "name": "backdated-binding-revision",
+      "operation": "backdate-reparented-binding",
+      "expected": "stale_issued_at"
+    },
+    {
+      "name": "cross-team-contact-lookup",
+      "operation": "contact",
+      "identity": "domainLead",
+      "capability": "message_existing_task",
+      "expected": "ok"
+    },
+    {
+      "name": "unsupported-contact-capability",
+      "operation": "contact",
+      "identity": "domainLead",
+      "capability": "archive_task",
+      "expected": "capability_unsupported"
+    },
+    {
+      "name": "cycle",
+      "operation": "mutate-root-under-domain-lead",
+      "expected": "cycle"
+    },
+    {
+      "name": "attempted-multi-parent-authority",
+      "operation": "set-two-primary-parents",
+      "identity": "domainLead",
+      "expected": "multiple_primary_parents"
+    },
+    {
+      "name": "observer-subscription-is-not-authority",
+      "operation": "set-observer-authority-true",
+      "expected": "observer_is_authority"
+    },
+    {
+      "name": "duplicate-active-observer-revision",
+      "operation": "add-active-observer-revision",
+      "expected": "duplicate_active_subscription"
+    },
+    {
+      "name": "startup-compact-resume-same-revision",
+      "operation": "repeat-lookup",
+      "identity": "domainLead",
+      "repetitions": 3,
+      "expected": "ok"
+    },
+    {
+      "name": "fork-gets-new-identity",
+      "operation": "lookup",
+      "identity": "unbound",
+      "expected": "unbound"
+    },
+    {
+      "name": "revoked-binding-is-unbound",
+      "operation": "revoke-and-lookup",
+      "identity": "domainLead",
+      "expected": "unbound"
+    },
+    {
+      "name": "revoke-parent-before-active-child",
+      "operation": "revoke-parent-with-active-child",
+      "expected": "missing_recipient"
+    }
+  ]
+}
