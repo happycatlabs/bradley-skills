@@ -1,0 +1,18 @@
+{
+  "name": "bradley-skills",
+  "owner": {
+    "name": "Bradley Inniss",
+    "email": "bfinniss@gmail.com"
+  },
+  "metadata": {
+    "description": "Personal agent skills for launching, inspecting, coordinating, and reviewing multi-agent development work.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "bradley-skills",
+      "source": ".",
+      "description": "Personal agent skills for launching, inspecting, coordinating, and reviewing multi-agent development work."
+    }
+  ]
+}

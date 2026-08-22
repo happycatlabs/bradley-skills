@@ -25,15 +25,15 @@ multi-agent development work.
 
 ### Cursor Cloud Agents
 
-This repo is a Cursor / Agent plugin (`plugin.json` and
-`.cursor-plugin/plugin.json`). Skills live under `skills/`. Cursor does not
-load a bare `skills/` directory from a checkout; it loads plugin skills after
-the plugin is installed.
+This repo is a Cursor marketplace with one plugin. The folder picker looks
+for `.cursor-plugin/marketplace.json` at the **repo root**, then loads
+`skills/` from that plugin. A bare `skills/` directory is not a plugin.
 
-Install the plugin on your Cursor account (Plugins → add this GitHub repo, or
-Team Marketplace **Required**). User-installed plugins are cloned onto every
-Cloud Agent VM. Laptop `~/.cursor/skills` and the symlink install below do not
-sync to Cloud Agents.
+Local install: Plugins → add from folder → select the repo root
+(`…/bradley-skills`), not `…/bradley-skills/skills`. Team Marketplace import
+uses the same root manifest. User-installed plugins are cloned onto every
+Cloud Agent VM. Laptop `~/.cursor/skills` and the symlink install below do
+not sync to Cloud Agents.
 
 Skill bodies still resolve helpers via `~/.agents/skills/...`. Keep the local
 symlink install on machines that run those scripts, or invoke scripts from the
