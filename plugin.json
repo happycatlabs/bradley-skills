@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "bradley-skills",
+  "version": "1.0.0",
+  "description": "Personal agent skills for launching, inspecting, coordinating, and reviewing multi-agent development work.",
+  "author": {
+    "name": "Bradley Inniss",
+    "email": "bfinniss@gmail.com",
+    "url": "https://github.com/happycatlabs"
+  },
+  "homepage": "https://github.com/happycatlabs/bradley-skills",
+  "repository": "https://github.com/happycatlabs/bradley-skills",
+  "keywords": [
+    "skills",
+    "orchestration",
+    "agents",
+    "cursor",
+    "codex",
+    "claude"
+  ]
+}
