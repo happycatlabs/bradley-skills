@@ -23,31 +23,39 @@ multi-agent development work.
 
 ## Install
 
-### Cursor Cloud Agents
-
-This repo is a Cursor marketplace with one plugin. The folder picker looks
-for `.cursor-plugin/marketplace.json` at the **repo root**, then loads
-`skills/` from that plugin. A bare `skills/` directory is not a plugin.
-
-Local install: Plugins → add from folder → select the repo root
-(`…/bradley-skills`), not `…/bradley-skills/skills`. Team Marketplace import
-uses the same root manifest. User-installed plugins are cloned onto every
-Cloud Agent VM. Laptop `~/.cursor/skills` and the symlink install below do
-not sync to Cloud Agents.
-
-Skill bodies still resolve helpers via `~/.agents/skills/...`. Keep the local
-symlink install on machines that run those scripts, or invoke scripts from the
-skill directory Cursor reports when the skill loads.
-
-### Local symlink (Claude, Codex, laptop Cursor)
-
-Symlink each directory under `skills/` into `~/.agents/skills/`:
+The supported install is the symlink loop into `~/.agents/skills/`. Cursor
+loads that path as user-level skills. Do not vendor these files into an app
+repo.
 
 ```sh
+git clone --depth 1 https://github.com/happycatlabs/bradley-skills.git \
+  "$HOME/.local/share/bradley-skills"
+mkdir -p "$HOME/.agents/skills"
+cd "$HOME/.local/share/bradley-skills"
 for skill in skills/*; do
   ln -sfn "$PWD/$skill" "$HOME/.agents/skills/$(basename "$skill")"
 done
 ```
+
+Idempotent refresh: `git -C "$HOME/.local/share/bradley-skills" pull --ff-only`,
+then rerun the loop.
+
+### Cursor desktop plugin (optional)
+
+The "add plugins from folder" picker is a marketplace importer. It requires
+`.cursor-plugin/marketplace.json` in the **selected folder**. That file lives
+at the repo root. Select `…/bradley-skills`, not `…/bradley-skills/skills`.
+
+Official local plugin test path from Cursor's docs:
+
+```sh
+mkdir -p "$HOME/.cursor/plugins/local"
+cp -R "$HOME/.local/share/bradley-skills" \
+  "$HOME/.cursor/plugins/local/bradley-skills"
+```
+
+Then **Developer: Reload Window**. Laptop `~/.cursor/skills` and
+`~/.cursor/plugins/local` do not sync to Cloud Agents.
 
 Each skill is self-contained. Keep helper scripts and `agents/openai.yaml`
 metadata beside its `SKILL.md` when changing or distributing a skill.
