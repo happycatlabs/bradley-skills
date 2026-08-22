@@ -23,8 +23,25 @@ multi-agent development work.
 
 ## Install
 
-The skills are installed by symlinking each directory under `skills/` into
-`~/.agents/skills/`:
+### Cursor Cloud Agents
+
+This repo is a Cursor / Agent plugin (`plugin.json` and
+`.cursor-plugin/plugin.json`). Skills live under `skills/`. Cursor does not
+load a bare `skills/` directory from a checkout; it loads plugin skills after
+the plugin is installed.
+
+Install the plugin on your Cursor account (Plugins → add this GitHub repo, or
+Team Marketplace **Required**). User-installed plugins are cloned onto every
+Cloud Agent VM. Laptop `~/.cursor/skills` and the symlink install below do not
+sync to Cloud Agents.
+
+Skill bodies still resolve helpers via `~/.agents/skills/...`. Keep the local
+symlink install on machines that run those scripts, or invoke scripts from the
+skill directory Cursor reports when the skill loads.
+
+### Local symlink (Claude, Codex, laptop Cursor)
+
+Symlink each directory under `skills/` into `~/.agents/skills/`:
 
 ```sh
 for skill in skills/*; do
