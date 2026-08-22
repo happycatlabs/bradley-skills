@@ -26,18 +26,21 @@ multi-agent development work.
 ### Cursor Cloud Agents
 
 This repo is a Cursor / Agent plugin (`plugin.json` and
-`.cursor-plugin/plugin.json`). Skills live under `skills/`. Cursor does not
-load a bare `skills/` directory from a checkout; it loads plugin skills after
-the plugin is installed.
+`.cursor-plugin/plugin.json`). The source trees live under `skills/`. Cursor
+does **not** load a bare `skills/` directory as slash commands.
 
-Install the plugin on your Cursor account (Plugins → add this GitHub repo, or
-Team Marketplace **Required**). User-installed plugins are cloned onto every
-Cloud Agent VM. Laptop `~/.cursor/skills` and the symlink install below do not
-sync to Cloud Agents.
+Cloud Agents discover project skills from `.cursor/skills/` (and
+`.agents/skills/`) in the checkout at session start. Each entry there is a
+symlink to the matching `skills/<name>` tree so `/agent-workspace` and the
+rest show up without a plugin install.
 
-Skill bodies still resolve helpers via `~/.agents/skills/...`. Keep the local
-symlink install on machines that run those scripts, or invoke scripts from the
-skill directory Cursor reports when the skill loads.
+User-level discovery on the VM is `~/.cursor/skills` (Cursor) and
+`~/.agents/skills` (helper paths skill bodies mention). The Cloud Agent
+install script links both. Laptop `~/.cursor/skills` does **not** sync to
+Cloud Agents.
+
+To use the skills on other repositories, install the plugin on your Cursor
+account (Plugins → add this GitHub repo, or Team Marketplace **Required**).
 
 ### Local symlink (Claude, Codex, laptop Cursor)
 
