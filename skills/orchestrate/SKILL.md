@@ -63,8 +63,9 @@ compact mission lock containing:
 
 - the requested outcome in the user's terms;
 - motivating examples, explicitly labeled as examples rather than deliverables;
-- the current vertical slice, its material completion claims, and the evidence
-  sufficient to support confidence in each claim;
+- the minimum shippable outcome for the current vertical slice, its material
+  completion claims, the evidence sufficient to support confidence in each
+  claim, and the point at which the owner must stop adding work and ship;
 - explicit non-goals; and
 - a rough change budget: expected subsystems, public contracts, migrations, UI
   surfaces, and approximate file/diff size.
@@ -95,6 +96,15 @@ not silently convert the finding into a broader hardening project.
 Tracker creation or updates require their own existing authority. Out-of-scope
 review findings may be mentioned in the handoff; do not create tickets for them
 unless tracker follow-up was explicitly requested or the user approves it.
+
+Classify every finding as **blocking**, **follow-up**, or **rejected**. Blocking
+means directly required for the minimum shippable outcome or a credible
+correctness, security, privacy, data-loss, or authority regression introduced
+by the active change. Follow-ups are real but non-blocking and belong in the
+authorized tracker or handoff, not the active diff. Reviewer severity and
+technical relatedness alone do not make a finding blocking. Once blockers are
+resolved and required checks are green, proceed to durable delivery before
+starting another improvement pass.
 
 ## Evidence Contract
 
@@ -813,6 +823,12 @@ review lanes, adjudicate findings in the main thread, address real issues, and
 rerun focused validation afterward. If the orchestration already included
 equivalent independent review lanes, say explicitly why that satisfies this
 gate; do not stack another review for ceremony.
+
+Critique cannot move the finish line. For every finding, record one disposition:
+blocking now, tracked follow-up, or rejected. Only blocking findings as defined
+by the mission lock hold the ship gate. Do not implement a non-blocking finding
+because it is cheap, nearby, or labeled high severity without a concrete path
+through the active change.
 
 When the user says "critique every slice" or equivalent, first state the
 coordination cost of repeating the full cross-provider workflow. Treat the

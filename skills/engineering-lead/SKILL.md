@@ -57,12 +57,30 @@ Prefer fresh, focused tasks over full-history forks. Fork or inherit broad
 history only when the conversation itself materially affects the work and a
 bounded capsule would lose important nuance.
 
+## Minimum Shippable Outcome
+
+Before dispatch, state the smallest durable result that advances Bradley's
+mission, the evidence that proves it, and the rough file/diff budget. Put that
+minimum shippable outcome in the owner prompt and make it the finish line.
+
+Leads must prevent critique, adjacent tickets, and "while we are here" work
+from moving that finish line. Only work directly required for the outcome, or a
+credible correctness/security/privacy/data-loss/authority regression introduced
+by the active change, may block shipping. Real non-blocking findings go to
+Linear or the project's existing tracker when tracker writes are authorized;
+otherwise preserve them in the handoff. They do not expand the active diff.
+
+When the minimum outcome is proven and required delivery checks are green, the
+lead routes commit/PR/merge through the applicable authority instead of starting
+another improvement pass.
+
 ## Context Capsule
 
 Every durable dispatch includes:
 
 - source lead task, project, domain, and why the work matters now;
 - exact desired outcome or question;
+- minimum shippable outcome, proof, and rough file/diff budget;
 - relevant recent conversation, settled decisions, taste constraints, and
   unresolved tensions;
 - authoritative artifacts and links;

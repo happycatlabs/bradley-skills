@@ -62,9 +62,15 @@ Prefer a fresh, focused task with a concise capsule over a full-history fork.
 Include the source lead/task, project/domain, why the work matters now, exact
 outcome or question, relevant recent conversation and settled decisions,
 taste constraints and unresolved tensions, authoritative links, verified facts
-versus assumptions, non-goals, privacy and mutation authority, evidence, stop
-condition, and report destination. Use broader history only when the
+versus assumptions, the minimum shippable outcome and rough file/diff budget,
+non-goals, privacy and mutation authority, evidence, stop condition, and report
+destination. Use broader history only when the
 conversation itself is material and cannot be represented faithfully.
+
+Every delivery child must be told that non-blocking findings do not expand its
+diff. When tracker writes are authorized, it records useful follow-ups in the
+existing tracker; otherwise it returns them in the handoff. It ships once the
+minimum outcome and required checks are satisfied.
 
 ## Core Flow
 
@@ -257,6 +263,11 @@ User constraints:
 Goal: run this as an orchestrated <investigation/prototype/implementation>.
 Establish baseline, choose safe slices, and use subagents where they reduce
 risk or cycle time.
+
+Minimum shippable outcome: <smallest durable result, proof, and rough file/diff
+budget>. Stop adding work and ship when this is proven. Classify review or
+discovery output as blocking, tracked follow-up, or rejected; never implement a
+non-blocking finding in this diff.
 
 Suggested slices:
 - <slice 1>
