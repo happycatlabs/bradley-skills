@@ -20,6 +20,7 @@ multi-agent development work.
 - `codex-automation`: local and remote Codex automation lifecycle management
 - `brainstorm` and `consult`: cross-agent exploration and consultation
 - `critique`: bounded review loops over existing work
+- `taste`: product-design judgment for creating and polishing UIs
 
 ## Install
 
