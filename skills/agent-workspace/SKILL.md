@@ -72,17 +72,43 @@ One fact may be linked across systems, but each system keeps its authority. A
 Notion note does not close a ticket, approve a PR, prove deployment, or replace
 a repository contract.
 
+## Workspace Layout
+
+The information model is stable; the Notion layout is not. A workspace may use
+nested pages, databases, or a mix. Preserve the configured workspace's existing
+shape unless the user asks to reorganize it.
+
+Agents must be able to resolve:
+
+- execution environments and routing scopes;
+- exact provider task bindings and environment placement;
+- stable project and domain scope;
+- decisions, architecture, plans, research, role contracts, operating notes,
+  and concise handoffs.
+
+Read [references/workspace-layouts.md](references/workspace-layouts.md) when
+creating or reorganizing a workspace, registering an agent or environment, or
+writing a structured handoff. It defines required meaning and layout choices,
+not one universal hierarchy.
+
+Do not hardcode database, data-source, page, agent, environment, or provider
+identifiers in this skill. Resolve every destination beneath the guarded root
+and confirm its content, schema when applicable, and ancestry. A title alone is
+not authority.
+
 ## Workflow
 
 1. Classify the request as retrieve, create, reorganize, or update.
 2. Verify the destination guard.
-3. Search beneath the exact configured root before creating anything. Fetch
-   plausible matches and prefer the canonical existing project page.
+3. Fetch the current hierarchy beneath the root. Search only beneath that root
+   before creating anything. Fetch plausible matches and prefer the canonical
+   existing page or database record.
 4. Choose the smallest durable shape:
    - update a section for a bounded note;
-   - create a subpage for a topic with an independent lifecycle or likely
-     future updates;
-   - create a project page only when no canonical page exists.
+   - create a subpage for a topic with its own context or likely future updates;
+   - use a database record when several items share stable fields, relations,
+     or query needs;
+   - create a new container only when the current layout has no suitable home.
 5. Before writes, read the current page. Preserve useful content, links, child
    pages, and the user's organization. Prefer targeted updates or appends over
    whole-page replacement.
@@ -96,18 +122,47 @@ roots, per-session pages, routine heartbeat logs, and speculative hierarchies.
 
 When asked to establish durable context for a project or domain lead:
 
-1. Search only beneath the configured root for the exact name and close
+1. Search the existing project area or database for the exact subject and close
    variants.
-2. Select the canonical page from its content and ancestry, not title alone.
-3. Create the project page directly beneath the root only when no canonical
-   page exists.
-4. Store stable scope, role contracts, architecture, decisions, and links to
-   live authorities. Do not claim that a registered task is currently active.
-5. Link tickets, PRs, repositories, provider task ids, and evidence rather than
-   copying their full contents.
+2. Select the canonical page or record from its properties, content, relations,
+   and ancestry, not its title alone.
+3. Create a project subpage or database record only when no canonical home
+   exists. Follow the workspace's current layout.
+4. Connect the project to its exact registered lead binding when known. In a
+   database layout use a relation; in a page layout use a compact identity link
+   or structured section.
+5. Store architecture, decisions, plans, research, and handoffs where the
+   workspace already keeps shared context. Use child pages when subjects need
+   room; use records when repeated fields and cross-project queries matter.
+6. Link tickets, pull requests, repositories, provider task ids, and evidence
+   rather than copying their full contents.
 
 Use clear subject titles rather than run ids. Put dates inside pages only when
 chronology matters.
+
+## Environments And Agent Bindings
+
+Keep environment, adapter, and task identity separate:
+
+- An environment says where execution occurs and which routing scope applies.
+- An adapter is one environment's authenticated way to inspect or contact a
+  provider. Installing an adapter on a Mac does not make a cloud agent local.
+- An agent binding is exactly `provider + taskId + hostScope`, associated with
+  one environment. Names and role labels are descriptive only.
+
+Register only verified identities. Record provider-advertised contact
+capabilities, but do not infer that a task is running, loaded, reachable, or
+unfinished. The native provider owns those facts. When placement or reporting
+changes, supersede the old binding rather than silently editing its identity.
+
+## Handoffs
+
+Write a handoff page, section, or record only for material context that a
+different agent, provider, or environment needs to continue. Follow the current
+workspace layout. Include the project, source and destination bindings or
+environments when known, verified facts, settled decisions, remaining question
+or next gate, and links to native evidence. Do not put live status, routine
+heartbeats, raw messages, or transcripts in the handoff.
 
 ## Content, Privacy, And Safety
 

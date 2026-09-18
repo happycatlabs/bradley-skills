@@ -1,11 +1,13 @@
 ---
 name: sound-human
-description: Rewrite or review human-facing prose so it reads like a thoughtful person wrote it. Use for internal documentation, onboarding guides, technical explanations, knowledge-base pages, tickets, pull request descriptions, handoffs, status updates, and other writing that feels robotic, jargon-heavy, over-structured, ambiguous, or obviously AI-generated. Preserve the writer's meaning and tone while improving first-read comprehension, specificity, rhythm, and natural voice.
+description: Rewrite or review human-facing prose so it reads like a thoughtful person wrote it, in any domain. Use for internal documentation, onboarding guides, technical explanations, knowledge-base pages, tickets, pull request descriptions, handoffs, status updates, and other writing that feels robotic, jargon-heavy, over-structured, ambiguous, or obviously AI-generated. Preserve the writer's meaning and tone while improving first-read comprehension, specificity, rhythm, and natural voice. Domain expertise never excuses vague referents, buried rules, or undefined shorthand.
 ---
 
 # Sound Human
 
-Make the writing easy to understand on the first read. Human voice comes from clear judgment, concrete details, and natural rhythm, not fake slang or manufactured personality.
+Make the writing easy to understand on the first read, in any domain. The subject can be Amazon Lending, email, Paradev, or something else entirely — the bar does not change. A newcomer to that topic should still know who acts, what happens, and what rule to remember without inventing missing context.
+
+Human voice comes from clear judgment, concrete details, and natural rhythm, not fake slang or manufactured personality.
 
 ## Rewrite workflow
 
@@ -48,12 +50,13 @@ When asked to review rather than rewrite:
 
 - Introduce a component by saying what it is and what it does. A name alone is not an explanation.
 - Name who acts, what happens, and where it happens. Prefer "The billing service creates the invoice" to "invoice creation is handled downstream."
-- Replace vague references such as "it," "this," "the path," and "the system" when more than one meaning is possible.
+- Replace vague references such as "it," "this," "this path," "the path," "the change," "the system," "any subset," and "anything else" when more than one meaning is possible. Name the concrete actor, path, product, or case.
 - Resolve ambiguity from facts the user or source provides. If the missing actor, state, or behavior is unknown, preserve that uncertainty or ask; do not guess to make the prose sound complete.
 - If a sentence sounds polished but is difficult to restate plainly, rewrite it using concrete actions, facts, or consequences.
+- Put the durable rule first when a section depends on it. Do not make the reader invent scenarios from phrases like "the change" or "anything else" before they learn the rule that actually matters.
 - Separate stages that people commonly collapse. "Requested," "queued," "accepted by the provider," and "delivered" are not all "sent."
 - Put code terms after the plain-language explanation. Define a term once, then use it consistently.
-- Spell out or explain unfamiliar acronyms at first use, including acronyms inside headings, diagrams, and link labels.
+- Spell out or explain unfamiliar acronyms at first use, including acronyms inside headings, diagrams, and link labels. Do not introduce a one-off shorthand mid-page (for example "NS" for a term the section title already spelled out) when a skimmer would hit that sentence cold.
 - Link code after the claim it supports. Do not make the link carry the explanation.
 - Layer detail. Start with the main flow, then move specialized behavior, rollout notes, code maps, and debugging details into later sections or focused pages.
 - Keep mutable status notes dated and separate from durable system behavior.
@@ -87,14 +90,17 @@ Formatting should help the rendered document. Use a table for a real comparison 
 
 ## Ambiguity pass
 
+This pass is domain-agnostic. Run it even when the draft is already "technical and correct."
+
 For each paragraph, ask:
 
 - Who is acting?
 - What exactly happens?
 - Where does it happen?
-- Would a new reader understand every necessary term?
-- Does "success," "complete," "current," or "sent" name a precise state?
-- Does any pronoun have more than one possible referent?
+- Would a new reader to this domain understand every necessary term without prior chat or sibling docs?
+- Does "success," "complete," "current," "sent," "this path," or "the change" name a precise state or case?
+- Does any pronoun or vague noun ("it," "this," "that," "subset," "anything else") have more than one possible referent?
+- Is the durable rule stated before the exceptions and edge cases?
 - Is a temporary rollout detail presented like a permanent rule?
 
 Rewrite until every answer is obvious from the text itself.
@@ -124,6 +130,18 @@ Before:
 After:
 
 > After the command writes the record, it reads the database to verify the change.
+
+Before:
+
+> For classic orders, the vendor owns who is in any subset. If the change is all orders or only prepaid, we do not need a new signal. Anything else needs a mark from them. Their switch and our skip behavior must flip together.
+
+After:
+
+> Their consent switch and our skip behavior must flip together for the same customers. Do not invent our own allowlist.
+
+> - **All classic orders.** If the vendor collects consent for every classic order before we see it, we can skip our redirect without a new per-customer signal.
+> - **Prepaid only.** We already detect the prepaid no-redirect path. No new signal needed for that case alone.
+> - **Only some classic orders.** The vendor owns who is in that subset. We need a mark from them so our skip matches their switch.
 
 ## Respect local conventions
 
