@@ -21,6 +21,8 @@ multi-agent development work.
 - `brainstorm` and `consult`: cross-agent exploration and consultation
 - `critique`: bounded review loops over existing work
 - `taste`: product-design judgment for creating and polishing UIs
+- `no-bullshit`: practical judgment across plans, products, APIs, code,
+  evidence, and execution
 
 ## Install
 

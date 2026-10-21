@@ -1,0 +1,4 @@
+interface:
+  display_name: "No Bullshit"
+  short_description: "Cut needless complexity and deliver useful work"
+  default_prompt: "Use $no-bullshit to review this work for unnecessary complexity, friction, ceremony, and unsupported claims."
