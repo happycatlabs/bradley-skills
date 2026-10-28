@@ -15,6 +15,7 @@ This is not `critique`. `critique` reviews existing work or artifacts and should
    - Restate the decision, goal, constraints, and success criteria in one compact paragraph.
    - Separate known facts from assumptions.
    - If the idea depends on code, docs, or another agent/session, inspect only enough source material to make the brainstorm grounded.
+   - Find the current project decision page and ticket when they exist. Give consultants exact links and a short summary of what is settled versus open; do not assume they inherit your chat or can access the same connectors.
 
 2. Choose lanes:
    - Small or low-stakes question: use the other-provider advisory lane plus your own reasoning.
@@ -24,7 +25,7 @@ This is not `critique`. `critique` reviews existing work or artifacts and should
 3. Run cross-agent input:
    - If you are Codex, load and follow `~/.agents/skills/claude/SKILL.md` for the other-provider lane.
    - If you are Claude, load and follow `~/.agents/skills/consult/SKILL.md` or `~/.agents/skills/codex/SKILL.md` for the Codex lane.
-   - Give outside agents a self-contained prompt: user goal, relevant context, current candidate ideas, constraints, and the exact output shape wanted.
+   - Give outside agents a self-contained prompt: user goal, relevant context, current candidate ideas, constraints, authoritative documents they can verify, and the exact output shape wanted. Ask them to challenge plausible but unstated assumptions, especially what a public API name promises to its caller.
 
 4. Run same-provider subagents when useful and available:
    - Treat an explicit `brainstorm` invocation as a request for agent-assisted ideation, but still keep fan-out proportional to the question.
@@ -57,12 +58,12 @@ Goal:
 <what the user wants>
 
 Context:
-<facts, constraints, relevant files/session notes if any>
+<verified facts, assumptions, constraints, exact source revision, and relevant document/ticket links if any>
 
 Current ideas:
 <optional candidates already on the table>
 
-Please propose 2-4 viable approaches, pressure-test them, and recommend a default. Label assumptions. Do not modify files.
+Please propose 2-4 viable approaches, pressure-test them, and recommend a default. Label and challenge assumptions; say what a caller could reasonably misread. Verify the linked sources you can access, and mark any you cannot. Do not modify files.
 ```
 
 Same-provider subagent prompts:
