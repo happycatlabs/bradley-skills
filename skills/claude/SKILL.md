@@ -46,8 +46,11 @@ product-judgment calls that belong to the user.
   preserves its conversation.
 
 - **Default `-p` mode is NOT read-only** — file edits are permitted. For a
-  read-only lane use `--permission-mode plan` (verified: reads work, Edit is
-  blocked). For write lanes use `--permission-mode acceptEdits` (verified:
+  source-read-only lane use `--permission-mode plan` (verified: project reads
+  work and Edit is blocked). Plan mode may still write an agent-private plan
+  file under `~/.claude/plans`; it is not a zero-filesystem-write mode. Verify
+  the repository status after a consult. For write lanes use
+  `--permission-mode acceptEdits` (verified:
   edits and workspace-mutating commands like mkdir run without prompts).
   Plan mode can still decline a harmless shell command such as `sleep` because
   it is not part of planning; do not use synthetic sleeps as proof that plan
