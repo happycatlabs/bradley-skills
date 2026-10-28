@@ -23,6 +23,7 @@ multi-agent development work.
 - `taste`: product-design judgment for creating and polishing UIs
 - `no-bullshit`: practical judgment across plans, products, APIs, code,
   evidence, and execution
+- `api-design`: caller-first public API, SDK, CLI, and MCP contract design
 
 ## Install
 

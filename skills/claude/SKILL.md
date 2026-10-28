@@ -110,7 +110,11 @@ product-judgment calls that belong to the user.
   handle.
 - Give Claude a self-contained brief: it does not see the host conversation.
   Include the goal, relevant paths/snippets/command output, what you already
-  ruled out, and the answer shape you want. Do not send secrets.
+  ruled out, and the answer shape you want. Include exact current Notion/Linear
+  or repository links when they matter, plus settled decisions versus open
+  assumptions. `--safe-mode` disables MCP, so a consult in that mode cannot
+  verify Notion or Linear itself; use project-aware mode when connected reads
+  are genuinely needed, and still provide the links. Do not send secrets.
 
 ## Mode 1 — Consult
 
